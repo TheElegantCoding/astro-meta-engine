@@ -1,0 +1,15 @@
+---
+import { buildUrl } from '../util/link';
+
+export type SitemapProps = {
+  readonly sitemapPath?: string;
+  readonly showSitemap?: boolean;
+};
+
+type Props = SitemapProps;
+
+const { showSitemap = true, sitemapPath = 'sitemap-index.xml' } = Astro.props;
+const baseUrl = Astro.site ?? Astro.url;
+const sitemapUrl = buildUrl(baseUrl, sitemapPath);
+---
+{showSitemap && <link rel='sitemap' href={sitemapUrl} />}
