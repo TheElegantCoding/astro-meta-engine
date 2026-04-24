@@ -1,0 +1,33 @@
+---
+import { formatDate } from '../util/date';
+import { buildUrl } from '../util/link';
+
+import type { OpenGraphVideoType } from 'open-graph-types';
+
+type Props = OpenGraphVideoType;
+
+const {
+  url,
+  secureUrl,
+  type,
+  width,
+  height,
+  alt,
+  duration,
+  releaseDate,
+  tag
+} = Astro.props;
+
+const baseUrl = Astro.site ?? Astro.url;
+const imageUrl = buildUrl(baseUrl, url ?? '');
+const secureImageUrl = secureUrl ? buildUrl(baseUrl, secureUrl) : undefined;
+---
+{url && (<meta content={imageUrl} property='og:video' />)}
+{secureUrl && (<meta content={secureImageUrl} property='og:video:secure_url' />)}
+{type && (<meta content={type} property='og:video:type' />)}
+{width && (<meta property='og:video:width' content={width.toString()} />)}
+{height && (<meta property='og:video:height' content={height.toString()} />)}
+{alt && (<meta content={alt} property='og:video:alt' />)}
+{duration && (<meta property='og:video:duration' content={duration.toString()} />)}
+{releaseDate && (<meta property='og:video:release_date' content={formatDate(releaseDate)} />)}
+{tag && tag.map((data) => { return <meta content={data} property='og:video:tag' />; })}
