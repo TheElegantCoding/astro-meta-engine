@@ -1,0 +1,76 @@
+---
+import Base from './base.astro';
+import Canonical from './canonical.astro';
+import Favicon from './favicon.astro';
+import GoogleAnalytic from './google_analytic.astro';
+import LanguageAlternative from './language_alternative.astro';
+import MetaAuthor from './meta_author.astro';
+import OpenGraph from './open_graph.astro';
+import Robots from './robots.astro';
+import Rss from './rss.astro';
+import Sitemap from './sitemap.astro';
+import StructuredData from './structured_data.astro';
+
+import type { OpenGraph as OpenGraphType } from 'open-graph-types';
+
+import type { BaseProps } from './base.astro';
+import type { FaviconProps } from './favicon.astro';
+import type { GoogleAnalyticProps } from './google_analytic.astro';
+import type { LanguageAlternativeProps } from './language_alternative.astro';
+import type { MetaAuthorProps } from './meta_author.astro';
+import type { RobotsProps } from './robots.astro';
+import type { RssProps } from './rss.astro';
+import type { SitemapProps } from './sitemap.astro';
+
+type Props = BaseProps & {
+  rss?: RssProps;
+  favicon?: FaviconProps;
+  sitemap?: SitemapProps;
+  metaRobot?: RobotsProps;
+  showCanonical?: boolean;
+  openGraph?: OpenGraphType;
+  metaAuthor?: MetaAuthorProps;
+  schema?: Record<string, unknown>;
+  googleAnalytic?: GoogleAnalyticProps;
+  languageAlternative?: LanguageAlternativeProps;
+};
+
+const {
+  openGraph,
+  schema,
+  showCanonical = true,
+  metaAuthor,
+  metaRobot,
+  favicon,
+  languageAlternative,
+  sitemap,
+  rss,
+  googleAnalytic,
+  charset,
+  viewport,
+  xUACompatible,
+  description,
+  keywords,
+  title
+} = Astro.props;
+---
+<Base
+  title={title}
+  charset={charset}
+  viewport={viewport}
+  keywords={keywords}
+  description={description}
+  xUACompatible={xUACompatible}
+/>
+{showCanonical && <Canonical />}
+<MetaAuthor {...metaAuthor} />
+<Robots {...metaRobot} />
+<Favicon {...favicon} />
+<LanguageAlternative {...languageAlternative} />
+<OpenGraph {...openGraph} />
+<title>{title}</title>
+<StructuredData schema={schema} />
+<Sitemap {...sitemap} />
+<Rss {...rss} />
+<slot />
+<GoogleAnalytic {...googleAnalytic} />
