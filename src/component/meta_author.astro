@@ -1,0 +1,27 @@
+---
+import { joinString } from '../util/string';
+
+export type MetaAuthorProps = {
+  readonly copyright?: string;
+  readonly author?: {
+    readonly web?: string;
+    readonly name?: string;
+    readonly email?: string;
+  };
+};
+
+type Props = MetaAuthorProps;
+
+const { author, copyright } = Astro.props;
+const authorContent = author
+  ? joinString([
+    author.name,
+    author.email,
+    author.web
+  ])
+  : '';
+---
+{(author?.name || author?.email || author?.web) && (
+  <meta name='author' content={authorContent} />
+)}
+{copyright && (<meta name='copyright' content={copyright} />)}
