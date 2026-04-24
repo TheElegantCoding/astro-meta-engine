@@ -32,7 +32,7 @@
     "postinstall": "bunx gitlys init",
     "dev": "astro dev",
     "lint:eslint": "eslint . --fix",
-    "release": "bun build && bunx gitlys release",
+    "release": "bun run build && bunx gitlys release",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
