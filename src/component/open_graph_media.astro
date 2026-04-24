@@ -1,0 +1,26 @@
+---
+import { buildUrl } from '../util/link';
+
+import type { OpenGraphMediaType } from 'open-graph-types';
+
+type Props = OpenGraphMediaType;
+
+const {
+  height,
+  secureUrl,
+  type,
+  url,
+  alt,
+  width
+} = Astro.props;
+
+const baseUrl = Astro.site ?? Astro.url;
+const imageUrl = buildUrl(baseUrl, url ?? '');
+const secureImageUrl = secureUrl ? buildUrl(baseUrl, secureUrl) : undefined;
+---
+{url && (<meta content={imageUrl} property='og:image' />)}
+{secureUrl && (<meta content={secureImageUrl} property='og:image:secure_url' />)}
+{type && (<meta content={type} property='og:image:type' />)}
+{width && (<meta property='og:image:width' content={width.toString()} />)}
+{height && (<meta property='og:image:height' content={height.toString()} />)}
+{alt && (<meta content={alt} property='og:image:alt' />)}
