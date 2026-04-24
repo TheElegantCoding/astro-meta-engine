@@ -1,0 +1,18 @@
+---
+import type { OpenGraphMusicType } from 'open-graph-types';
+
+type Props = OpenGraphMusicType;
+
+const {
+  album,
+  disc,
+  duration,
+  musician,
+  track
+} = Astro.props;
+---
+{album && (<meta content={album} property='og:music:album' />)}
+{disc && (<meta property='og:music:disc' content={disc.toString()} />)}
+{duration && (<meta property='og:music:duration' content={duration.toString()} />)}
+{musician && musician.map((data) => { return <meta content={data} property='og:music:musician' />; })}
+{track && (<meta property='og:music:track' content={track.toString()} />)}
