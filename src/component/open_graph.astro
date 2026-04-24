@@ -1,0 +1,46 @@
+---
+import OpenGraphArticle from './open_graph_article.astro';
+import OpenGraphBook from './open_graph_book.astro';
+import OpenGraphLocale from './open_graph_locale.astro';
+import OpenGraphMedia from './open_graph_media.astro';
+import OpenGraphMusic from './open_graph_music.astro';
+import OpenGraphProfile from './open_graph_profile.astro';
+import OpenGraphTwitter from './open_graph_twitter.astro';
+import OpenGraphVideo from './open_graph_video.astro';
+
+import type { OpenGraph } from 'open-graph-types';
+
+type Props = OpenGraph;
+
+const {
+  url,
+  title,
+  siteName,
+  type,
+  description,
+  book,
+  profile,
+  music,
+  video,
+  locale,
+  twitter,
+  article,
+  image,
+  determiner
+} = Astro.props;
+---
+{url && (<meta content={url} property='og:url' />)}
+{title && (<meta content={title} property='og:title' />)}
+{siteName && (<meta content={siteName} property='og:site_name' />)}
+{type && (<meta content={type} property='og:type' />)}
+{description && (<meta content={description} property='og:description' />)}
+{determiner && (<meta content={determiner} property='og:determiner' />)}
+{book && <OpenGraphBook {...book} />}
+{profile && <OpenGraphProfile {...profile} />}
+{music && <OpenGraphMusic {...music} />}
+{locale && <OpenGraphLocale {...locale} />}
+{video && <OpenGraphVideo {...video} />}
+{twitter && <OpenGraphTwitter {...twitter} />}
+{article && <OpenGraphArticle {...article} />}
+{image && !Array.isArray(image) && <OpenGraphMedia {...image} />}
+{image && Array.isArray(image) && image.map((data) => { return <OpenGraphMedia {...data} />; })}
