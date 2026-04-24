@@ -1,0 +1,23 @@
+---
+import { formatDate } from '../util/date';
+import OpenGraphProfile from './open_graph_profile.astro';
+
+import type { OpenGraphArticleType } from 'open-graph-types';
+
+type Props = OpenGraphArticleType;
+
+const {
+  author,
+  expirationTime,
+  modifiedTime,
+  publishedTime,
+  section,
+  tag
+} = Astro.props;
+---
+{publishedTime && (<meta property='article:published_time' content={formatDate(publishedTime)} />)}
+{modifiedTime && (<meta property='article:modified_time' content={formatDate(modifiedTime)} />)}
+{expirationTime && (<meta property='article:expiration_time' content={formatDate(expirationTime)} />)}
+{section && <meta content={section} property='article:section' />}
+{tag && tag.map((data) => { return <meta content={data} property='article:tag' />; })}
+{author && author.map((data) => { return <OpenGraphProfile {...data} />; })}
