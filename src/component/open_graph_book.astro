@@ -1,0 +1,19 @@
+---
+
+import OpenGraphProfile from './open_graph_profile.astro';
+
+import type { OpenGraphBookType } from 'open-graph-types';
+
+type Props = OpenGraphBookType;
+
+const {
+  author,
+  isbn,
+  releaseDate,
+  tag
+} = Astro.props;
+---
+{isbn && (<meta content={isbn} property='book:isbn' />)}
+{releaseDate && (<meta content={releaseDate} property='book:release_date' />)}
+{tag && tag.map((data) => { return <meta content={data} property='book:tag' />; })}
+{author && author.map((data) => { return <OpenGraphProfile {...data} />; })}
