@@ -2,7 +2,7 @@
   "name": "astro-meta-engine",
   "description": "📦️ Powerful, type-safe metadata and JSON-LD engine for Astro.",
   "author": "Luis Monsalve",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "homepage": "https://github.com/TheElegantCoding/astro-meta-engine#readme",
   "repository": {
     "type": "git",
