@@ -1,0 +1,10 @@
+---
+import type { OpenGraphTwitterType } from 'open-graph-types';
+
+type Props = OpenGraphTwitterType;
+
+const { card, creator, site } = Astro.props;
+---
+{card && (<meta content={card} name='twitter:card' />)}
+{site && (<meta content={site} name='twitter:site' />)}
+{creator && (<meta content={creator} name='twitter:creator' />)}
