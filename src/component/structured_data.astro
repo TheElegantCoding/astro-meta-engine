@@ -1,0 +1,18 @@
+---
+type Props<T> = {
+  readonly schema?: T;
+};
+
+const { schema } = Astro.props;
+
+const jsonLd = schema
+  ? JSON.stringify(schema).replaceAll('<', String.raw`\u003c`)
+  : undefined;
+---
+{schema && (
+  <script
+    is:inline
+    set:html={jsonLd}
+    type='application/ld+json'
+  />
+)}
