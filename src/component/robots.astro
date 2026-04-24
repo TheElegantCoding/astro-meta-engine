@@ -1,0 +1,20 @@
+---
+import { joinString } from '../util/string';
+
+export type RobotsProps = {
+  extraRobots?: string;
+  noIndex?: 'index' | 'noindex';
+  noFollow?: 'follow' | 'nofollow';
+};
+
+type Props = RobotsProps;
+
+const { noIndex = 'index', noFollow = 'follow', extraRobots = '' } = Astro.props;
+
+const robotContent = joinString([
+  noIndex,
+  noFollow,
+  extraRobots
+]);
+---
+<meta name='robots' content={robotContent} />
