@@ -1,0 +1,31 @@
+---
+export type BaseProps = {
+  readonly title?: string;
+  readonly charset?: string;
+  readonly viewport?: string;
+  readonly keywords?: string[];
+  readonly description?: string;
+  readonly xUACompatible?: string | boolean;
+};
+
+type Props = BaseProps;
+
+const {
+  charset,
+  viewport,
+  xUACompatible,
+  description,
+  keywords = []
+} = Astro.props;
+
+const charsetValue = charset ?? 'utf-8';
+const viewportValue = viewport ?? 'width=device-width, initial-scale=1, viewport-fit=cover';
+const xUA = xUACompatible ?? 'IE=edge';
+const uniqueKeywords = [...new Set(keywords.map((key) => { return key.trim(); }))];
+const keywordsContent = uniqueKeywords.join(', ');
+---
+<meta charset={charsetValue} />
+<meta name='viewport' content={viewportValue} />
+{xUA && <meta http-equiv='X-UA-Compatible' content={xUA === true ? 'IE=edge' : xUA} />}
+<meta name='description' content={description} />
+{keywords.length > 0 && <meta name='keywords' content={keywordsContent} />}
