@@ -1,0 +1,9 @@
+---
+import type { OpenGraphLocaleType } from 'open-graph-types';
+
+type Props = OpenGraphLocaleType;
+
+const { current, alternate } = Astro.props;
+---
+<meta content={current} property='og:locale' />
+{alternate && alternate.map((locale) => { return <meta content={locale} property='og:locale:alternate' />; })}
