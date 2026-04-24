@@ -1,0 +1,52 @@
+---
+import { buildUrl } from '../util/link';
+
+export type FaviconProps = {
+  readonly png?: string;
+  readonly svg?: string;
+  readonly ico?: string;
+  readonly apple?: string;
+  readonly manifest?: string;
+};
+
+type Props = FaviconProps;
+
+const {
+  png,
+  svg,
+  ico,
+  apple,
+  manifest
+} = Astro.props;
+
+const siteUrl = Astro.site ?? Astro.url;
+const pngUrl = buildUrl(siteUrl, png ?? 'favicon.png');
+const svgUrl = buildUrl(siteUrl, svg ?? 'favicon.svg');
+const icoUrl = buildUrl(siteUrl, ico ?? 'favicon.ico');
+const appleUrl = buildUrl(siteUrl, apple ?? 'apple-touch-icon.png');
+const manifestUrl = buildUrl(siteUrl, manifest ?? 'site.webmanifest');
+---
+{png && (
+  <link
+    rel='icon'
+    href={pngUrl}
+    sizes='96x96'
+    type='image/png'
+  />
+)}
+{svg && (
+  <link
+    rel='icon'
+    href={svgUrl}
+    type='image/svg+xml'
+  />
+)}
+{apple && (
+  <link
+    href={appleUrl}
+    sizes='180x180'
+    rel='apple-touch-icon'
+  />
+)}
+{ico && (<link href={icoUrl} rel='shortcut icon' />)}
+{manifest && <link rel='manifest' href={manifestUrl} />}
