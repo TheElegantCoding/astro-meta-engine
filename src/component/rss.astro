@@ -1,0 +1,23 @@
+---
+import { buildUrl } from '../util/link';
+
+export type RssProps = {
+  readonly rssPath?: string;
+  readonly siteName?: string;
+  readonly showRss?: boolean;
+};
+
+type Props = RssProps;
+
+const { siteName, rssPath = 'rss.xml', showRss = true } = Astro.props;
+const baseUrl = Astro.site ?? Astro.url;
+const rssUrl = buildUrl(baseUrl, rssPath);
+---
+{showRss && (
+  <link
+    href={rssUrl}
+    rel='alternate'
+    title={siteName}
+    type='application/rss+xml'
+  />
+)}
