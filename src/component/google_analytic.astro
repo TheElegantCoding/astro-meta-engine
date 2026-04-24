@@ -1,0 +1,32 @@
+---
+export type GoogleAnalyticProps = {
+  readonly googleAnalyticId?: string;
+  readonly showGoogleAnalytic?: boolean;
+};
+
+type Props = GoogleAnalyticProps;
+
+const { googleAnalyticId, showGoogleAnalytic } = Astro.props;
+
+const shouldRender = googleAnalyticId && showGoogleAnalytic;
+---
+{shouldRender && (
+  <script
+    async
+    is:inline
+    type='text/partytown'
+    src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticId}`}
+  />
+  <script
+    is:inline
+    type='text/partytown'
+    define:vars={{ googleAnalyticId }}
+  >
+    window.dataLayer ||= [];
+    const gtag = (...args) => {
+      dataLayer.push(args);
+    };
+    gtag('js', new Date());
+    gtag('config', googleAnalyticId);
+  </script>
+)}
