@@ -1,5 +1,5 @@
 ---
-import { removeTrailingSlash } from '../util/link';
+import { buildUrl, removeTrailingSlash } from '../util/link';
 
 export type LanguageAlternativeProps = {
   languages?: string[];
@@ -9,7 +9,7 @@ export type LanguageAlternativeProps = {
 type Props = LanguageAlternativeProps;
 
 const { languages, defaultLanguage } = Astro.props;
-const canonicalURL = Astro.site ? removeTrailingSlash(new URL(Astro.url.pathname, Astro.site)) : Astro.url;
+const canonicalURL = buildUrl(Astro.url.pathname, Astro.site);
 ---
 {defaultLanguage && (
   <link
@@ -19,10 +19,10 @@ const canonicalURL = Astro.site ? removeTrailingSlash(new URL(Astro.url.pathname
   />
 )}
 {(languages && languages.length > 1) && languages.map((lang) => {
-  const href = new URL(Astro.url.pathname, Astro.site);
-  const url = removeTrailingSlash(new URL(`/${lang}${href.pathname}`, Astro.site));
+  const isDefault = lang === defaultLanguage;
+  const url = removeTrailingSlash(buildUrl(`/${lang}${Astro.url.pathname}`, Astro.site));
 
-  return (
+  return !isDefault && (
     <link
       href={url}
       rel='alternate'
