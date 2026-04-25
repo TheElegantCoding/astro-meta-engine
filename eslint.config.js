@@ -8,10 +8,6 @@ const config = eslintConfig({
   yml: true,
   perfectionist: true,
   typescript: true
-}, {
-  rules: {
-    'unicorn/text-encoding-identifier-case': 'off'
-  }
 });
 
 export default config;
