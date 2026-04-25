@@ -9,9 +9,8 @@ export type RssProps = {
 
 type Props = RssProps;
 
-const { siteName, rssPath = 'rss.xml', showRss = true } = Astro.props;
-const baseUrl = Astro.site ?? Astro.url;
-const rssUrl = buildUrl(baseUrl, rssPath);
+const { siteName, rssPath = '/rss.xml', showRss = true } = Astro.props;
+const rssUrl = buildUrl(rssPath, Astro.site);
 ---
 {showRss && (
   <link
