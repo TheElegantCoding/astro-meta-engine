@@ -1,4 +1,5 @@
 ---
+import { buildUrl } from './../util/link';
 import OpenGraphArticle from './open_graph_article.astro';
 import OpenGraphBook from './open_graph_book.astro';
 import OpenGraphLocale from './open_graph_locale.astro';
@@ -13,7 +14,6 @@ import type { OpenGraph } from 'open-graph-types';
 type Props = OpenGraph;
 
 const {
-  url,
   title,
   siteName,
   type,
@@ -28,8 +28,10 @@ const {
   image,
   determiner
 } = Astro.props;
+
+const canonicalURL = buildUrl(Astro.url.pathname, Astro.site);
 ---
-{url && (<meta content={url} property='og:url' />)}
+{title && (<meta property='og:url' content={canonicalURL} />)}
 {title && (<meta content={title} property='og:title' />)}
 {siteName && (<meta content={siteName} property='og:site_name' />)}
 {type && (<meta content={type} property='og:type' />)}
