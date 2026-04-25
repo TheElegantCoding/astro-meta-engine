@@ -2,7 +2,11 @@ const removeTrailingSlash = (url: URL | string) => {
   return url.toString().replace(/\/$/v, '');
 };
 
-const buildUrl = (base: URL | string, path: string): string => {
+const buildUrl = (path: string, base?: URL | string): string => {
+  if (!base) {
+    return removeTrailingSlash(path);
+  }
+
   if (path.startsWith('http://') || path.startsWith('https://')) {
     return removeTrailingSlash(path);
   }
