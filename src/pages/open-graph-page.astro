@@ -1,0 +1,18 @@
+---
+import OpenGraph from './../component/open_graph.astro';
+---
+<OpenGraph
+  type='website'
+  determiner='the'
+  title='Example Page'
+  siteName='Example Site'
+  description='This is an example page for Open Graph.'
+  image={{
+    alt: 'An example image',
+    height: 600,
+    secureUrl: '/image.jpg',
+    type: 'image/jpeg',
+    url: '/image.jpg',
+    width: 1200
+  }}
+/>
