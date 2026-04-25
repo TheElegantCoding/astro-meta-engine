@@ -32,6 +32,8 @@
     "postinstall": "bunx gitlys init",
     "dev": "astro dev",
     "lint:eslint": "eslint . --fix",
+    "test": "playwright test",
+    "test:watch": "playwright test --ui",
     "release": "bun run build && bunx gitlys release",
     "build": "astro check && astro build",
     "preview": "astro preview",
@@ -40,10 +42,13 @@
   "devDependencies": {
     "@astrojs/partytown": "^2.1.7",
     "@astrojs/sitemap": "^3.7.2",
+    "@playwright/test": "1.59.1",
+    "@types/node": "25.6.0",
     "astro": "^6.1.9",
-    "eslint-config-universal-code": "^1.0.15",
-    "gitlys": "^1.1.5",
+    "eslint-config-universal-code": "^1.0.18",
+    "gitlys": "^1.1.6",
     "open-graph-types": "^1.0.1",
+    "playwright": "^1.59.1",
     "structured-data-types": "^1.0.0"
   }
 }
