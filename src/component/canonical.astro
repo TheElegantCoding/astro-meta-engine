@@ -1,6 +1,6 @@
 ---
-import { removeTrailingSlash } from '../util/link';
+import { buildUrl } from '../util/link';
 
-const canonicalURL = Astro.site ? removeTrailingSlash(new URL(Astro.url.pathname, Astro.site)) : Astro.url;
+const canonicalURL = buildUrl(Astro.url.pathname, Astro.site);
 ---
 <link rel='canonical' href={canonicalURL} />
