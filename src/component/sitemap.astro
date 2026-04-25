@@ -8,8 +8,7 @@ export type SitemapProps = {
 
 type Props = SitemapProps;
 
-const { showSitemap = true, sitemapPath = 'sitemap-index.xml' } = Astro.props;
-const baseUrl = Astro.site ?? Astro.url;
-const sitemapUrl = buildUrl(baseUrl, sitemapPath);
+const { showSitemap = true, sitemapPath = '/sitemap-index.xml' } = Astro.props;
+const sitemapUrl = buildUrl(sitemapPath, Astro.site);
 ---
 {showSitemap && <link rel='sitemap' href={sitemapUrl} />}
