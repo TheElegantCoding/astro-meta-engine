@@ -18,9 +18,8 @@ const {
   tag
 } = Astro.props;
 
-const baseUrl = Astro.site ?? Astro.url;
-const imageUrl = buildUrl(baseUrl, url ?? '');
-const secureImageUrl = secureUrl ? buildUrl(baseUrl, secureUrl) : undefined;
+const imageUrl = buildUrl(url ?? '', Astro.site);
+const secureImageUrl = secureUrl ? buildUrl(secureUrl, Astro.site) : undefined;
 ---
 {url && (<meta content={imageUrl} property='og:video' />)}
 {secureUrl && (<meta content={secureImageUrl} property='og:video:secure_url' />)}
