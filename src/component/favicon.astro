@@ -19,12 +19,12 @@ const {
   manifest
 } = Astro.props;
 
-const siteUrl = Astro.site ?? Astro.url;
-const pngUrl = buildUrl(siteUrl, png ?? 'favicon.png');
-const svgUrl = buildUrl(siteUrl, svg ?? 'favicon.svg');
-const icoUrl = buildUrl(siteUrl, ico ?? 'favicon.ico');
-const appleUrl = buildUrl(siteUrl, apple ?? 'apple-touch-icon.png');
-const manifestUrl = buildUrl(siteUrl, manifest ?? 'site.webmanifest');
+const siteUrl = Astro.site;
+const pngUrl = buildUrl(png ?? 'favicon.png', siteUrl);
+const svgUrl = buildUrl(svg ?? 'favicon.svg', siteUrl);
+const icoUrl = buildUrl(ico ?? 'favicon.ico', siteUrl);
+const appleUrl = buildUrl(apple ?? 'apple-touch-icon.png', siteUrl);
+const manifestUrl = buildUrl(manifest ?? 'site.webmanifest', siteUrl);
 ---
 {png && (
   <link
