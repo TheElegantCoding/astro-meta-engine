@@ -45,8 +45,8 @@
     "@playwright/test": "1.59.1",
     "@types/node": "25.6.0",
     "astro": "^6.1.9",
-    "eslint-config-universal-code": "^1.0.18",
-    "gitlys": "^1.1.6",
+    "eslint-config-universal-code": "^1.0.19",
+    "gitlys": "^1.1.7",
     "open-graph-types": "^1.0.1",
     "playwright": "^1.59.1",
     "structured-data-types": "^1.0.0"
