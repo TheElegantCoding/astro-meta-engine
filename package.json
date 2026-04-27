@@ -32,8 +32,10 @@
     "postinstall": "bunx gitlys init",
     "dev": "astro dev",
     "lint:eslint": "eslint . --fix",
-    "test": "playwright test",
-    "test:watch": "playwright test --ui",
+    "test": "vitest && playwright test",
+    "test:watch": "vitest watch",
+    "test:component:watch": "playwright test --ui",
+    "test:component": "playwright test",
     "release": "bun run build && bunx gitlys release",
     "build": "astro check && astro build",
     "preview": "astro preview",
@@ -46,9 +48,11 @@
     "@types/node": "25.6.0",
     "astro": "^6.1.9",
     "eslint-config-universal-code": "^1.0.19",
-    "gitlys": "^1.1.7",
+    "gitlys": "^2.0.0",
     "open-graph-types": "^1.0.1",
     "playwright": "^1.59.1",
-    "structured-data-types": "^1.0.0"
+    "structured-data-types": "^1.0.0",
+    "typescript": "5.6.3",
+    "vitest": "^4.1.4"
   }
 }
