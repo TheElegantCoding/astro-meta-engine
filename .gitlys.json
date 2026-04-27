@@ -1,6 +1,7 @@
 {
-  "lintStaged": {
-    "*.{ts,js,json,yml,yaml}": "bunx eslint --fix"
+  "preCommitTask": {
+    "*.astro": "bunx astro check",
+    "*.{ts,js,json,yml,yaml,astro}": "bunx eslint --fix"
   },
   "release": {
     "releaseToGithub": true
