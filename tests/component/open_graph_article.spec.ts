@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-import { BASE_URL } from './constant';
+import { BASE_URL } from '../constant/constant';
 
 test('should render article information correctly', async ({ page }) => {
   await page.goto(`${BASE_URL}/open-graph-article-page`);

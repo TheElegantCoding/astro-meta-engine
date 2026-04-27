@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
 
-import { BASE_URL } from './constant';
+import { BASE_URL } from '../constant/constant';
 
-test.describe('Seo meta data', () => {
+test.describe('Base meta data', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto(`${BASE_URL}/seo-page`);
+    await page.goto(`${BASE_URL}/base-page`);
   });
 
   test('has title', async ({ page }) => {
@@ -35,26 +35,5 @@ test.describe('Seo meta data', () => {
   test('has xUA compatibility', async ({ page }) => {
     const viewport = await page.locator("meta[http-equiv='X-UA-Compatible']").getAttribute('content');
     expect(viewport).toBe('IE=edge');
-  });
-
-  test('has canonical url', async ({ page }) => {
-    const url = page.url();
-    const viewport = await page.locator("link[rel='canonical']").getAttribute('href');
-    expect(viewport).toBe(url);
-  });
-
-  test('has robot', async ({ page }) => {
-    const robot = await page.locator("meta[name='robots']").getAttribute('content');
-    expect(robot).toBe('index, follow');
-  });
-
-  test('has sitemap', ({ page }) => {
-    const sitemap = page.locator("link[rel='sitemap']");
-    expect(sitemap).not.toBeNull();
-  });
-
-  test('has rss', ({ page }) => {
-    const rss = page.locator("link[type='application/rss+xml']");
-    expect(rss).not.toBeNull();
   });
 });

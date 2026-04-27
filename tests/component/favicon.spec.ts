@@ -1,6 +1,6 @@
 import { test, expect } from 'playwright/test';
 
-import { BASE_URL } from './constant';
+import { BASE_URL } from '../constant/constant';
 
 test.describe('Favicon', () => {
   test.beforeEach(async ({ page }) => {

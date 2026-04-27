@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-import { BASE_URL } from './constant';
+import { BASE_URL } from '../constant/constant';
 
 test('should render locale information correctly', async ({ page }) => {
   await page.goto(`${BASE_URL}/open-graph-locale-page`);
