@@ -4,6 +4,7 @@ const config = defineConfig({
   testDir: './tests',
   fullyParallel: true,
   reporter: 'html',
+  testMatch: '**/*.spec.ts',
   use: {
     baseURL: 'http://localhost:4321',
     trace: 'on-first-retry'
