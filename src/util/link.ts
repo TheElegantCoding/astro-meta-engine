@@ -13,7 +13,7 @@ const buildUrl = (path: string, base?: URL | string): string => {
 
   const baseUrl = removeTrailingSlash(new URL(base));
   const cleanPath = path.replace(/^\//, '');
-  return `${baseUrl}/${cleanPath}`;
+  return removeTrailingSlash(`${baseUrl}/${cleanPath}`);
 };
 
 export { buildUrl, removeTrailingSlash };
