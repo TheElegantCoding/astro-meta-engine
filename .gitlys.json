@@ -3,6 +3,7 @@
     "*.astro": "bunx astro check",
     "*.{ts,js,json,yml,yaml,astro}": "bunx eslint --fix"
   },
+  "prePushTask": ["bunx run test"],
   "release": {
     "releaseToGithub": true
   },
