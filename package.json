@@ -38,8 +38,7 @@
     "test:component": "playwright test",
     "release": "bun run build && bunx gitlys release",
     "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "astro preview"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
