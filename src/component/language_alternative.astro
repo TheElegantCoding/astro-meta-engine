@@ -19,10 +19,9 @@ const canonicalURL = buildUrl(Astro.url.pathname, Astro.site);
   />
 )}
 {(languages && languages.length > 1) && languages.map((lang) => {
-  const isDefault = lang === defaultLanguage;
   const url = removeTrailingSlash(buildUrl(`/${lang}${Astro.url.pathname}`, Astro.site));
 
-  return !isDefault && (
+  return (
     <link
       href={url}
       rel='alternate'
