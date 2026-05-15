@@ -16,6 +16,10 @@ The list of changes have the description - commit - author.
 
 ## Released
 
+## 🚀 Version [1.0.2] - 2026-05-15
+
+- **fix:** add exports field to package.json for improved module resolution [`38b6964`](https://github.com/TheElegantCoding/astro-seo-kit/commit/38b6964) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+
 ## 🚀 Version [1.0.1] - 2026-05-15
 
 - **fix:** add SeoProps type import for consistency in exports [`4d29d52`](https://github.com/TheElegantCoding/astro-seo-kit/commit/4d29d52) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
