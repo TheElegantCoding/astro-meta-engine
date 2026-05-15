@@ -1,0 +1,21 @@
+---
+export type TypographyProps = {
+  type: string;
+  href: string;
+}[];
+
+type Props = TypographyProps;
+
+const { props } = Astro;
+---
+{props && props.map((element) => {
+  return (
+    <link
+      as='font'
+      crossorigin
+      rel='preload'
+      type={element.type}
+      href={element.href}
+    />
+  );
+})}
