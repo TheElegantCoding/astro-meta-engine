@@ -7,7 +7,7 @@ import type { RobotsProps } from './component/robots.astro';
 import type { RssProps } from './component/rss.astro';
 import type { SitemapProps } from './component/sitemap.astro';
 
-export { default as SEO } from './component/seo.astro';
+export { default as Seo } from './component/seo.astro';
 export { default as Rss } from './component/rss.astro';
 export { default as Base } from './component/base.astro';
 export { default as Robots } from './component/robots.astro';
