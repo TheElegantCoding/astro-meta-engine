@@ -16,6 +16,15 @@ The list of changes have the description - commit - author.
 
 ## Released
 
+## 🚀 Version [1.0.4] - 2026-05-15
+
+- **feat:** add Typography component and type to index exports [`4032465`](https://github.com/TheElegantCoding/astro-seo-kit/commit/4032465) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **feat:** add TypographyProps type and integrate Typography component in SeoProps [`ebb5ee8`](https://github.com/TheElegantCoding/astro-seo-kit/commit/ebb5ee8) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **feat:** update TypographyProps type and enhance font preloading with buildUrl [`7f2a9fa`](https://github.com/TheElegantCoding/astro-seo-kit/commit/7f2a9fa) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **feat:** create typography page with font preloading component [`fd86a16`](https://github.com/TheElegantCoding/astro-seo-kit/commit/fd86a16) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **test:** add Typography component tests for font preloading [`53e4e42`](https://github.com/TheElegantCoding/astro-seo-kit/commit/53e4e42) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **feat:** add TypographyProps type and component for font preloading [`ab32ea0`](https://github.com/TheElegantCoding/astro-seo-kit/commit/ab32ea0) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+
 ## 🚀 Version [1.0.3] - 2026-05-15
 
 - **fix:** update paths in package.json for consistency in module exports [`b3d036f`](https://github.com/TheElegantCoding/astro-seo-kit/commit/b3d036f) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
