@@ -5,6 +5,7 @@ import type { LanguageAlternativeProps } from './component/language_alternative.
 import type { MetaAuthorProps } from './component/meta_author.astro';
 import type { RobotsProps } from './component/robots.astro';
 import type { RssProps } from './component/rss.astro';
+import type { SeoProps } from './component/seo.astro';
 import type { SitemapProps } from './component/sitemap.astro';
 
 export { default as Seo } from './component/seo.astro';
@@ -21,6 +22,7 @@ export { default as LanguageAlternative } from './component/language_alternative
 
 export type {
   RssProps,
+  SeoProps,
   BaseProps,
   RobotsProps,
   FaviconProps,
