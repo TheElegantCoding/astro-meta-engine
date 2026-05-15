@@ -1,21 +1,25 @@
 ---
+import { buildUrl } from 'src/util/link';
+
 export type TypographyProps = {
-  type: string;
-  href: string;
-}[];
+  typography: {
+    type: string;
+    href: string;
+  }[];
+};
 
 type Props = TypographyProps;
 
-const { props } = Astro;
+const { typography } = Astro.props;
 ---
-{props && props.map((element) => {
+{typography && typography.map((element) => {
   return (
     <link
       as='font'
       crossorigin
       rel='preload'
       type={element.type}
-      href={element.href}
+      href={buildUrl(element.href, Astro.site)}
     />
   );
 })}
