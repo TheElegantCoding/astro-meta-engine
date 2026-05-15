@@ -10,6 +10,7 @@ import Robots from './robots.astro';
 import Rss from './rss.astro';
 import Sitemap from './sitemap.astro';
 import StructuredData from './structured_data.astro';
+import Typography from './typography.astro';
 
 import type { OpenGraph as OpenGraphType } from 'open-graph-types';
 
@@ -21,6 +22,7 @@ import type { MetaAuthorProps } from './meta_author.astro';
 import type { RobotsProps } from './robots.astro';
 import type { RssProps } from './rss.astro';
 import type { SitemapProps } from './sitemap.astro';
+import type { TypographyProps } from './typography.astro';
 
 export type SeoProps = BaseProps & {
   rss?: RssProps;
@@ -30,6 +32,7 @@ export type SeoProps = BaseProps & {
   showCanonical?: boolean;
   openGraph?: OpenGraphType;
   metaAuthor?: MetaAuthorProps;
+  typography?: TypographyProps;
   schema?: Record<string, unknown>;
   googleAnalytic?: GoogleAnalyticProps;
   languageAlternative?: LanguageAlternativeProps;
@@ -46,6 +49,7 @@ const {
   favicon,
   languageAlternative,
   sitemap,
+  typography = { typography: [] },
   rss,
   googleAnalytic,
   charset,
@@ -68,6 +72,7 @@ const {
 <MetaAuthor {...metaAuthor} />
 <Robots {...metaRobot} />
 <Favicon {...favicon} />
+<Typography {...typography} />
 <LanguageAlternative {...languageAlternative} />
 <OpenGraph {...openGraph} />
 <title>{title}</title>
