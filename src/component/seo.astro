@@ -22,7 +22,7 @@ import type { RobotsProps } from './robots.astro';
 import type { RssProps } from './rss.astro';
 import type { SitemapProps } from './sitemap.astro';
 
-type Props = BaseProps & {
+type SeoProps = BaseProps & {
   rss?: RssProps;
   favicon?: FaviconProps;
   sitemap?: SitemapProps;
@@ -34,6 +34,8 @@ type Props = BaseProps & {
   googleAnalytic?: GoogleAnalyticProps;
   languageAlternative?: LanguageAlternativeProps;
 };
+
+type Props = SeoProps;
 
 const {
   openGraph,
