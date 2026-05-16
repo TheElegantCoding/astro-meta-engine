@@ -16,6 +16,10 @@ The list of changes have the description - commit - author.
 
 ## Released
 
+## 🚀 Version [1.0.5] - 2026-05-16
+
+- **fix:** correct import path for buildUrl in typography component [`c22f564`](https://github.com/TheElegantCoding/astro-seo-kit/commit/c22f564) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+
 ## 🚀 Version [1.0.4] - 2026-05-15
 
 - **feat:** add Typography component and type to index exports [`4032465`](https://github.com/TheElegantCoding/astro-seo-kit/commit/4032465) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
